@@ -1,0 +1,221 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    background-color: #ffffff;
+}
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar{
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: #222222 !important;
+}
+
+.nav-link{
+    color: #222222 !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover{
+    color: #fe424d !important;
+}
+
+.content {
+    flex: 1;
+}
+
+.footer{
+    background-color: white;
+    border-top: 1px solid #f0f0f0;
+    height: auto;
+    padding: 20px 0;
+}
+
+.fa-bicycle{
+    font-size: 2.5rem;
+    color: #fe424d;
+}
+
+footer{
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+    transition: color 0.3s;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+    color: #fe424d;
+}
+
+.f-info-socials,.f-info-links{
+    width: 100%;
+}
+
+.f-info{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:space-evenly;
+    text-align: center;
+    vertical-align: middle;
+    gap: 15px;
+}
+
+.fa-brands {
+    font-size: 1.5rem;
+    color: #222222;
+    transition: color 0.3s;
+}
+
+.fa-brands:hover {
+    color: #fe424d;
+}
+
+.card img{
+    border-radius: 1.3rem !important;
+}
+
+.card a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.card a:hover{
+    text-decoration: none;
+}
+
+.card-img-top{
+    background-color: #000;
+    border-radius: 1.3rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    height: 250px !important;
+}
+
+.addbtn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+}
+
+.show-img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.show-card{
+    border: none !important;
+}
+
+.show-btns{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    border: none;
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(254, 66, 77, 0.25);
+    color: white;
+}
+
+/* Map */
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0 !important;
+    }
+
+    #map {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        padding: 0.75rem 1rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        z-index: 1000;
+    }
+
+    .nav-link {
+        font-size: 0.85rem;
+        padding: 0.4rem 0 !important;
+    }
+
+    footer {
+        padding: 15px 10px;
+        font-size: 0.9rem;
+    }
+
+    #map {
+        height: 250px;
+    }
+
+    .show-btns {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .show-btns button,
+    .show-btns a {
+        width: 100%;
+    }
+}

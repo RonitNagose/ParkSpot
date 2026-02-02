@@ -1,0 +1,617 @@
+<% layout("/layouts/boilerplate") -%>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #222222;
+    line-height: 1.6;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f1f8 100%);
+    color: #222222;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 0;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    margin-top: -80px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(254, 66, 77, 0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(100, 150, 255, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+  }
+
+  .hero p {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: #555555;
+    font-weight: 500;
+  }
+
+  .hero .tagline {
+    font-size: 1.15rem;
+    color: #888888;
+    font-style: italic;
+    margin-bottom: 25px;
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    color: #666666;
+    margin-bottom: 35px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-icon {
+    font-size: 8rem;
+    margin-bottom: 5px;
+    color: #fe424d;
+    display: block;
+    line-height: 1;
+    height: 8rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 35px;
+  }
+
+  .hero-search {
+    margin-top: 40px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-search input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-search button {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .hero-search button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(254, 66, 77, 0.3);
+  }
+
+  .hero-btn {
+    padding: 14px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .hero-btn-primary {
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    color: white;
+  }
+
+  .hero-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(254, 66, 77, 0.3);
+  }
+
+  .hero-btn-secondary {
+    background: white;
+    color: #fe424d;
+    border: 2px solid #fe424d;
+  }
+
+  .hero-btn-secondary:hover {
+    background: #fff5f5;
+    transform: translateY(-3px);
+  }
+
+  /* Container */
+  .container-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Section */
+  .section {
+    padding: 60px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .section:last-child {
+    border-bottom: none;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #222222;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: #666666;
+    margin-bottom: 40px;
+  }
+
+  /* About Section */
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .about-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fe424d;
+  }
+
+  .about-text p {
+    margin-bottom: 15px;
+    color: #555555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .features-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .feature-item {
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 4px solid #fe424d;
+    border-radius: 8px;
+  }
+
+  .feature-item strong {
+    color: #fe424d;
+  }
+
+  .feature-item p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  /* How to Use Section */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .step-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid #fe424d;
+  }
+
+  .step-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(254, 66, 77, 0.15);
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .step-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #222222;
+  }
+
+  .step-card p {
+    color: #666666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Why Choose Section */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .benefit-card {
+    padding: 30px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(254, 66, 77, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    border-color: #fe424d;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+  }
+
+  .benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #fe424d;
+  }
+
+  .benefit-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #222222;
+  }
+
+  .benefit-card p {
+    color: #666666;
+    font-size: 0.9rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f4f8 100%);
+    color: #222222;
+    padding: 60px 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(254, 66, 77, 0.1);
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #666666;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    color: white;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(254, 66, 77, 0.25);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: #fe424d;
+    padding: 12px 40px;
+    border: 2px solid #fe424d;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #fff5f5;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .features-list {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-icon">
+    <i class="fa-solid fa-bicycle"></i>
+    </div>
+    <h1>Find Your Perfect Parking Spot</h1>
+    <p class="tagline">Smart parking made simple</p>
+    <div class="hero-description">
+      <p>Stop wasting time searching for parking. ParkSpot connects you with verified, affordable parking spaces in your area. Book in seconds, park with confidence, and reclaim your sanity.</p>
+    </div>
+    <div class="hero-buttons">
+      <a href="/listings" class="btn btn-primary btn-lg">Browse Listings</a>
+      <a href="/signup" class="btn btn-secondary btn-lg">Get Started</a>
+    </div>
+
+    <div class="hero-search">
+      <form action="/listings/searchShow" method="post" style="display: flex; gap: 10px; width: 100%; max-width: 600px;">
+        <input type="text" name="city" placeholder="Search by city name..." required>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Main Content -->
+<div class="container-main">
+  <!-- About Section -->
+  <section class="section">
+    <h2 class="section-title">About ParkSpot</h2>
+    <p class="section-subtitle">Revolutionizing the way you find parking</p>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <h3>Why ParkSpot?</h3>
+        <p>
+          Parking is frustrating. Driving in circles, checking street signs, and paying excessive fees shouldn't be part of your day. ParkSpot connects you with verified parking spaces from real property owners and parking operators.
+        </p>
+        <p>
+          Whether you need daily parking, weekend spots, or occasional spaces for special events, ParkSpot has you covered with transparent pricing and hassle-free bookings.
+        </p>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <strong>💰 Transparent Pricing</strong>
+            <p>No hidden fees or surprise charges</p>
+          </div>
+          <div class="feature-item">
+            <strong>📍 Real-Time Availability</strong>
+            <p>Book instantly with live spot updates</p>
+          </div>
+          <div class="feature-item">
+            <strong>✅ Verified Listings</strong>
+            <p>All parking spaces are verified and secure</p>
+          </div>
+          <div class="feature-item">
+            <strong>🛡️ Safe & Secure</strong>
+            <p>Trusted by thousands of users daily</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h3>Get Started Today</h3>
+        <p>
+          ParkSpot makes parking simple with just a few clicks. Browse available parking spots in your area, check real-time availability, and book your ideal parking space with confidence.
+        </p>
+        <p>
+          From compact cars to SUVs, motorcycles to bicycles, we have parking solutions for every vehicle type and budget.
+        </p>
+        <p>
+          Join thousands of satisfied users who have already discovered the stress-free parking experience with ParkSpot.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use Section -->
+  <section class="section">
+    <h2 class="section-title">How to Use ParkSpot</h2>
+    <p class="section-subtitle">Get started in 4 simple steps</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Sign Up or Log In</h3>
+        <p>Create your free ParkSpot account or sign in to your existing account. It takes less than a minute!</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Browse Listings</h3>
+        <p>View all available parking spots in your desired area. Filter by price, location, vehicle type, and amenities.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Select & Book</h3>
+        <p>Choose your perfect parking spot and proceed to secure booking. Check all details before confirming.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Park & Enjoy</h3>
+        <p>Head to your booked spot and enjoy worry-free parking. Your receipt and confirmation are in your account.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose ParkSpot Section -->
+  <section class="section">
+    <h2 class="section-title">Why Choose ParkSpot?</h2>
+    <p class="section-subtitle">Experience parking like never before</p>
+
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🚗</div>
+        <h4>Multiple Vehicle Types</h4>
+        <p>Support for cars, motorcycles, scooters, bicycles and more. Find the right spot for your vehicle.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">💳</div>
+        <h4>Flexible Payment</h4>
+        <p>Pay only for what you use. No subscription required. Safe and secure payment options.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">📱</div>
+        <h4>Easy to Use</h4>
+        <p>Intuitive interface designed for convenience. Book your spot in seconds from anywhere.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🌍</div>
+        <h4>Growing Coverage</h4>
+        <p>Available in major cities and expanding rapidly. New parking spots added daily.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">⭐</div>
+        <h4>Rated & Reviewed</h4>
+        <p>Browse user ratings and reviews for each parking spot. Make informed decisions.</p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h4>Best Prices</h4>
+        <p>Competitive pricing from verified hosts. Get the best value for your parking needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to Find Your Perfect Parking Spot?</h2>
+    <p>Join thousands of satisfied users enjoying stress-free parking with ParkSpot</p>
+    <div class="cta-buttons">
+      <a href="/listings" class="btn-primary">Browse All Listings</a>
+      <a href="/signup" class="btn-secondary">Create Account</a>
+    </div>
+  </section>
+</div>

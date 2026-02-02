@@ -1,0 +1,160 @@
+<% layout("/layouts/boilerplate") -%>
+
+<style>
+  .auth-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e8f1f8 100%);
+    padding: 20px;
+  }
+
+  .auth-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f0f0f0;
+  }
+
+  .auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .auth-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #222222;
+    margin-bottom: 10px;
+  }
+
+  .auth-header p {
+    color: #666666;
+    font-size: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: #fe424d;
+    box-shadow: 0 0 0 3px rgba(254, 66, 77, 0.1);
+  }
+
+  .form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .btn-login {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s;
+    background: linear-gradient(135deg, #fe424d 0%, #ff6b6b 100%);
+    color: white;
+  }
+
+  .btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(254, 66, 77, 0.25);
+  }
+
+  .auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #666666;
+  }
+
+  .auth-footer a {
+    color: #fe424d;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .auth-footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 480px) {
+    .auth-card {
+      padding: 25px;
+    }
+
+    .auth-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .auth-header p {
+      font-size: 0.9rem;
+    }
+
+    .form-group input {
+      font-size: 16px;
+      padding: 12px;
+    }
+
+    .btn-login {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h1>Login</h1>
+      <p>Sign in to your ParkSpot account</p>
+    </div>
+
+    <form action="/login" method="post" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
+      </div>
+
+      <div class="form-buttons">
+        <button type="submit" class="btn-login">Sign In</button>
+      </div>
+    </form>
+
+    <div class="auth-footer">
+      Don't have an account? <a href="/signup">Create one</a>
+    </div>
+  </div>
+</div>

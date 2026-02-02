@@ -1,0 +1,37 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+App is Listening to Port 8080
+Connected to DB
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+Show Search Implemented
+{
+  image: {
+    filename: 'ParkSpot_DEV/jznqqdo5picefknojkyk',
+    url: 'https://res.cloudinary.com/ddgxy3eht/image/upload/v1769975765/ParkSpot_DEV/jznqqdo5picefknojkyk.jpg'
+  },
+  _id: new ObjectId('697fafd6f90e8d9e729368e0'),
+  title: 'My Home',
+  description: 'tgrfbv',
+  adress: 'Vasudev Nagar , Nagpur , Maharashtra',
+  price: 123,
+  vehicle_type: 'Truck',
+  city: 'Nagpur',
+  reviews: [],
+  latitude: 21.1187853,
+  longitude: 79.0194659,
+  owner: {
+    _id: new ObjectId('6975217896331bdfda31c416'),
+    email: 'jaytichukale@gmail.com',
+    username: 'd',
+    __v: 0
+  },
+  __v: 0
+}
+Show Search Implemented
