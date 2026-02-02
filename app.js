@@ -103,6 +103,9 @@ const validateReview = (req,res,next)=>{
     }
 }
 
+app.get("/",(req,res)=>{
+    res.render("listings/home");
+})
 
 app.get("/demouser", async(req,res)=>{
     let fakeUser = new User({
